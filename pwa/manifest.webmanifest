@@ -1,0 +1,36 @@
+{
+  "dir": "ltr",
+  "lang": "Russian",
+  "name": "QR Agent Scanner",
+  "short_name": "QRAS",
+  "scope": "/",
+  "display": "minimal-ui",
+  "start_url": "https://testsite.proathletesfactory.ru/",
+  "url": "https://testsite.proathletesfactory.ru/",
+  "background_color": "transparent",
+  "theme_color": "transparent",
+  "description": "QR Scanner - приложение для отметки Агентов на Мероприятиях.",
+  "orientation": "portrait-only",
+  "icons": [
+    {
+      "src": "img/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

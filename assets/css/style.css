@@ -1,0 +1,24 @@
+html, body
+{
+    height: 100%;
+    width: 100%;
+}
+
+.event-container .card-body
+{
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* ANIMATION CLASSES */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0
+}

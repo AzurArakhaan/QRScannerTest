@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="pwa/manifest.json">
+</head>
+<body class="bg-dark">
+
+<div class="container h-100" id="app">
+    <div class="row h-100 justify-content-center align-content-center my-auto">
+        <div class="col-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Авторизация</h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" @submit.prevent="authorize">
+                        <div class="mb-4">
+                            <label for="loginInput">Логин</label>
+                            <input type="text" class="form-control" id="loginInput" name="login" placeholder="Логин" v-model="login">
+                        </div>
+                        <div class="mb-2">
+                            <label for="passwordInput">Пароль</label>
+                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Пароль" v-model="password">
+                        </div>
+                        <div class="mt-2">
+                            <small class="form-text text-danger" v-if="authError">Неверный логин или пароль</small>
+                            <button class="btn btn-dark w-100">Авторизоваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/index.js"></script>
+<script src="assets/js/jquery-3.6.4.min.js"></script>
+<script src="assets/js/vue.min.js"></script>
+<script src="assets/js/axios.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            login: null,
+            password: null,
+            authError: false,
+        },
+        methods: {
+            authorize()
+            {
+                axios.post('api/login', {
+                    login: this.login,
+                    password: this.password
+                }).then(response => {
+                    document.location.href = 'main';
+                }).catch(error => {
+                    this.authError = true;
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
