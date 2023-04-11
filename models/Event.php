@@ -19,11 +19,11 @@ class Event extends Model
 
     public function getAll()
     {
-//        $connection = $this->openMySQL();
-//        $query = $connection->query("SELECT * FROM `events`");
-//        $events = $query->fetchAll(PDO::FETCH_ASSOC);
-//        $connection = null;
+        $connection = $this->openMySQL();
+        $query = $connection->query("SELECT * FROM `events`");
+        $events = $query->fetchAll(PDO::FETCH_ASSOC);
+        $connection = null;
 
-        return json_encode($this->events);
+        return json_encode($events);
     }
 }
