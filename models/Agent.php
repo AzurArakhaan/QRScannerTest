@@ -31,10 +31,11 @@ class Agent extends Model
     public function acceptAgent($idAgent, $idEvent)
     {
         $connection = $this->openMySQL();
-        $query = $connection->query("INSERT INTO `agent_events` (`id_agent`, `id_event`) VALUES ('" . $idAgent . "', '" . $idEvent . "')");
+        $sql = 'INSERT INTO `agent_events` (`id_agent`, `id_event`) VALUES (?, ?)';
+        $query = $connection->prepare($sql);
 
         try {
-            $query->execute();
+            $query->execute([$idAgent, $idEvent]);
             $connection = null;
             return true;
         } catch (\Exception $e) {
